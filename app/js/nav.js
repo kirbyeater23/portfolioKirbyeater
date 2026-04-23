@@ -1,4 +1,4 @@
-const pagina = window.location.pathname.split('/').pop() || 'index.html';
+﻿const pagina = window.location.pathname.split('/').pop() || 'index.html';
 
 function esActivo(href) {
   const nombre = href.replace('./', '').split('/').pop();
@@ -10,7 +10,7 @@ const overlay = document.createElement('div');
 overlay.className = 'menuMovilOverlay';
 overlay.innerHTML = `
   <div class="menuMovilCabecera">
-    <a href="index.html"><img class="imagenLogo" src="./assets/images/imagen logo.png" alt="Logo"></a>
+    <a href="index.html"><img class="imagenLogo" src="./assets/images/imagenLogo.png" alt="Logo"></a>
     <button class="menuMovilCerrar" aria-label="Cerrar menú">×</button>
   </div>
   <hr class="menuMovilSeparador">
