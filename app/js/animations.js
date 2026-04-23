@@ -1,6 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// ── Smooth Scroll (solo escritorio) ──────────────────────────
 if (!window.matchMedia("(pointer: coarse)").matches) {
   let scrollTarget = window.scrollY;
   let scrollCurrent = window.scrollY;
@@ -23,7 +22,7 @@ if (!window.matchMedia("(pointer: coarse)").matches) {
   })();
 }
 
-// ── Fade-in al hacer scroll ───────────────────────────────────
+
 const SELECTORES_ANIM = [
   ".cardProyecto",
   ".cardWork",
@@ -65,7 +64,7 @@ function escanearDOM() {
 
 window.addEventListener("load", escanearDOM);
 
-// Detecta cards añadidas dinámicamente tras el fetch
+
 new MutationObserver(escanearDOM).observe(document.body, {
   childList: true,
   subtree: true
