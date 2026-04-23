@@ -186,33 +186,36 @@ document.addEventListener("keydown", (e) => {
 });
 
 function ModalProyecto() {
-  const self = this;
-  self.clasesModal = "modalOverlay";
+  this.clasesModal = "modalOverlay";
+  this.htmlModal = "";
 
   window.abrirModal = (proyecto) => {
-    document.getElementById("modalInner").innerHTML = crearModalHTML(proyecto);
-    self.clasesModal = "modalOverlay modalVisible";
+    this.htmlModal = crearModalHTML(proyecto);
+    this.clasesModal = "modalOverlay modalVisible";
     document.documentElement.style.overflow = "hidden";
-    document.querySelector(".modalOverlay").scrollTop = 0;
-
-    document.querySelectorAll(".modalGaleriaItem img").forEach((img) => {
-      img.addEventListener("click", (e) => {
-        e.stopPropagation();
-        lightbox.querySelector(".galeriaLightboxImg").src = img.src;
-        lightbox.classList.add("galeriaLightboxVisible");
-      });
+    requestAnimationFrame(() => {
+      const overlay = document.querySelector(".modalOverlay");
+      if (overlay) overlay.scrollTop = 0;
     });
   };
 
   const cerrar = () => {
-    self.clasesModal = "modalOverlay";
+    this.clasesModal = "modalOverlay";
     document.documentElement.style.overflow = "";
   };
 
+  const clicGaleria = (e) => {
+    const img = e.target.closest(".modalGaleriaItem img");
+    if (!img) return;
+    e.stopPropagation();
+    lightbox.querySelector(".galeriaLightboxImg").src = img.src;
+    lightbox.classList.add("galeriaLightboxVisible");
+  };
+
   return (render) => render`
-    <div class="${self.clasesModal}">
+    <div class="${this.clasesModal}" onclick="${clicGaleria}">
       <button class="modalCerrar" onclick="${cerrar}">✕</button>
-      <div id="modalInner"></div>
+      <div>${this.htmlModal}</div>
     </div>
   `;
 }

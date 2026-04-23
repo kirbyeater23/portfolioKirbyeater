@@ -12,7 +12,7 @@ formulario.addEventListener("submit", (e) => {
     return;
   }
 
-  // Aquí irá la lógica de envío real (fetch a un backend, EmailJS, etc.)
+ 
   console.log("Formulario enviado", { nombre, apellidos, correo });
   formulario.reset();
 });
