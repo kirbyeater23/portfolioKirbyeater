@@ -1,0 +1,166 @@
+.seccionAbout {
+  padding: 0 2rem 0;
+  padding-top: var(--alto-nav);
+
+  // --- Hero ---
+  .heroAbout {
+    padding-top: 0;
+    
+
+    .heroAboutFila {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      justify-content: flex-end;
+      padding-right: 19rem;
+      
+
+      .smileyAbout {
+        width: clamp(100px, 15vw, 220px);
+        height: auto;
+        padding-right: 9rem;
+        fill: $rosa;
+      }
+
+      .tituloAboutNegro {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(4rem, 12vw, 10rem);
+        font-weight: 400;
+        font-style: normal;
+        color: $black;
+        margin: 0;
+        line-height: 1;
+      }
+    }
+
+    .tituloAboutRosa {
+      font-family: "Inter", sans-serif;
+      font-size: clamp(4rem, 12vw, 10rem);
+      font-weight: 900;
+      font-style: italic;
+      color: $rosa;
+      margin: 0;
+      line-height: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  // --- Bio + Foto ---
+  .bioAbout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+    padding: 4rem 0;
+    align-items: flex-start;
+
+    .bioColumna {
+      .bioEtiqueta {
+        font-family: "Inter", sans-serif;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: $gray;
+        display: block;
+        margin-bottom: 0.75rem;
+      }
+
+      .bioSaludo {
+        font-weight: 600;
+        margin: 0 0 1rem 0;
+        line-height: 1.4;
+      }
+
+      p {
+        margin: 0 0 1rem 0;
+        color: $black;
+        line-height: 1.4;
+      }
+    }
+
+    .fotoColumna {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+
+      .etiquetaYo {
+        font-style: italic;
+        color: $rosa;
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 900;
+        font-family: "Inter", sans-serif;
+      }
+
+      .fotoYo {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        aspect-ratio: 82/81;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .seccionAbout {
+    padding: 0 2rem;
+    padding-top: var(--alto-nav);
+
+    .heroAbout {
+      .heroAboutFila {
+        padding-right: 4rem;
+
+        .smileyAbout {
+          width: clamp(60px, 10vw, 120px);
+          padding-right: 2rem;
+        }
+      }
+    }
+
+    .bioAbout {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .seccionAbout {
+    padding: 0 20px;
+    padding-top: var(--alto-nav);
+
+    .heroAbout {
+      padding: 24px 0 8px;
+
+      .heroAboutFila {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-right: 0;
+        gap: 1rem;
+
+        .smileyAbout {
+          width: 72px;
+          padding-right: 0;
+        }
+
+        .tituloAboutNegro {
+          font-size: clamp(4rem, 20vw, 80px);
+        }
+      }
+
+      .tituloAboutRosa {
+        justify-content: flex-start;
+        font-size: clamp(4rem, 20vw, 80px);
+      }
+    }
+
+    .bioAbout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 16px 0 32px;
+    }
+  }
+}

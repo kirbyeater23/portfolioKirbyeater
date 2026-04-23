@@ -1,0 +1,51 @@
+/* Estilos de navegación */
+.navegacionPrincipal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  margin-top: 0;
+
+  .paginas {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 4.5rem;
+
+    .pagAnex {
+      padding-left: 6rem;
+    }
+  }
+}
+
+.navegacionFooter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 800px) {
+  .navegacionPrincipal {
+    position: fixed;
+    background: white;
+    height: 60px;
+    padding: 8px 20px;
+
+    .paginas {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .navegacionFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 15px;
+  }
+}

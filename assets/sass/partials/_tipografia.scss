@@ -1,0 +1,287 @@
+// Variables generales
+/*$font-family: "Inter", sans-serif;
+$font-size-hero: 221.053px;
+$line-height-hero: 198.948px;
+$font-size-normal: 20px;
+$font-size-small: 5.638px;*/
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* HERO / GRITO */
+h1 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(7rem, 14vw, 13.81581rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0.9;
+  margin: 0;
+  padding: 0;
+}
+
+/* CORTE FUERTE */
+h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 3.169rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* BLOQUE */
+h3 {
+  font-family: "Inter", sans-serif;
+  font-size: .75rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+}
+
+/* INTERRUPCIÓN */
+h4 {
+  font-family: "Inter", sans-serif;
+  font-size: .75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+}
+
+h5 {
+  font-family: "Inter", sans-serif;
+  font-size: .75rem;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+}
+
+
+p {
+  font-family: "Inter", sans-serif;
+  font-size: .5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+
+small {
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 7rem;
+    line-height: 1;
+  }
+
+  h2 {
+    font-size: 2rem;
+    line-height: 1.125;
+  }
+
+  /* BLOQUE / nombre card → 13px bold */
+  h3 {
+    font-size: 0.5rem;
+    line-height: normal;
+  }
+
+  /* INTERRUPCIÓN / descripción card → 11px */
+  h4 {
+    font-size: 0.5rem;
+    line-height: normal;
+  }
+
+  /* cliente / meta → 10px */
+  h5 {
+    font-size: 0.5rem;
+    line-height: normal;
+  }
+
+  /* TEXTO BASE → 14px, line-height 22px */
+  p {
+    font-size: 0.35rem;
+    line-height: 1.375rem;
+  }
+
+  /* MICRO / UI → 10px */
+  small {
+    font-size: 0.35rem;
+    line-height: normal;
+  }
+}
+
+@media (max-width: 350px) {
+  /* HERO → 76px en mobile */
+  h1 {
+    font-size: 4.75rem;
+    line-height: 1;
+  }
+
+  /* CORTE FUERTE → 32px */
+  h2 {
+    font-size: 2rem;
+    line-height: 1.125;
+  }
+
+  /* BLOQUE / nombre card → 13px bold */
+  h3 {
+    font-size: 0.5rem;
+    line-height: normal;
+  }
+
+  /* INTERRUPCIÓN / descripción card → 11px */
+  h4 {
+    font-size: 0.5rem;
+    line-height: normal;
+  }
+
+  /* cliente / meta → 10px */
+  h5 {
+    font-size: 0.5rem;
+    line-height: normal;
+  }
+
+  /* TEXTO BASE → 14px, line-height 22px */
+  p {
+    font-size: 0.5rem;
+    line-height: 1.375rem;
+  }
+
+  /* MICRO / UI → 10px */
+  small {
+    font-size: 0.4rem;
+    line-height: normal;
+  }
+}
+
+@media (max-width: 413px) {
+  h1 {
+    font-size: 18.5vw;
+    line-height: 1;
+  }
+
+  h2 {
+    font-size: 7.5vw;
+    line-height: 1.1;
+  }
+
+  h3 {
+    font-size: 3.2vw;
+  }
+
+  h4 {
+    font-size: 2.7vw;
+  }
+
+  h5 {
+    font-size: 2.4vw;
+  }
+
+  p {
+    font-size: 3.4vw;
+    line-height: 1.6;
+  }
+
+  small {
+    font-size: 2.4vw;
+  }
+}
+
+/*h1 {
+  font-family: "Inter", sans-serif;
+  font-size: 13.81581rem;
+  line-height: 12.43425rem;
+}
+
+/* Subheading grande / Hero secondary 
+h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 8.294rem;
+  line-height: 7.4rem;
+}
+
+/* Título de sección 
+h3 {
+  font-family: "Inter", sans-serif;
+  font-size: 4.976rem;
+  line-height: 4.4rem;
+}
+
+/* Subtítulo 
+h4 {
+  font-family: "Inter", sans-serif;
+  font-size: 2.986rem;
+  line-height: 2.8rem;
+}
+
+/* Texto destacado 
+h5 {
+  font-family: "Inter", sans-serif;
+  font-size: 1.792rem;
+  line-height: 1.6rem;
+}
+
+/* Texto base grande 
+h6 {
+  font-family: "Inter", sans-serif;
+  font-size: 1.44rem;
+  line-height: 1.4rem;
+}
+
+/* Body 
+p {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6rem;
+}
+
+/* Small text 
+small {
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+}*/
+
+/*h2{
+
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+}
+
+h3{
+font-family: "Inter", sans-serif;
+font-size: 1.25rem;
+
+font-weight: 200;
+
+}
+
+h4{
+font-family: "Inter", sans-serif;
+font-size: 0.9375rem;
+
+font-weight: 200;
+
+}*/

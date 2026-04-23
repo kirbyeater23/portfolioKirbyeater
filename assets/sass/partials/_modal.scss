@@ -1,0 +1,445 @@
+.modalOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: $background;
+  overflow-y: scroll;
+
+  &.modalVisible {
+    display: flex;
+  }
+}
+
+.modalCerrar {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 101;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  color: $black;
+}
+
+.modalPlaceholder {
+  background: $light-gray;
+}
+
+// --- Hero ---
+.modalHero {
+  
+
+  .modalHeroMedia {
+    width: 100%;
+    height: 75vh;
+    overflow: hidden;
+
+    img,
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .modalHeroInfo {
+    padding-top: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    overflow: hidden;
+  }
+
+  .modalTags {
+    font-family: "Inter", sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $gray;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .modalTitulo {
+    font-family: "Inter", sans-serif;
+    font-size: clamp(3rem, 7vw, 7rem);
+    font-weight: 900;
+    font-style: italic;
+    color: $rosa;
+    margin: 0;
+    line-height: 1;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+}
+
+// --- Meta row ---
+.modalMeta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid $black;
+  border-bottom: 1px solid $black;
+
+  .modalMetaLabel {
+    font-family: "Inter", sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $gray;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  span {
+    font-family: "Inter", sans-serif;
+    font-size: 0.85rem;
+    color: $black;
+  }
+}
+
+// --- Secciones genéricas ---
+.modalSeccion {
+  padding: 4rem 2rem 2rem;
+
+  .modalLabel {
+    font-family: "Inter", sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $gray;
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.modalImagenFull {
+  width: 100%;
+  height: 55vh;
+  overflow: hidden;
+
+  img,
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+// --- Concept ---
+.modalConceptoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+
+  .modalConceptoImagen {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+
+    img,
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .modalConceptoTexto {
+    h2 {
+      font-family: "Inter", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 0 0 1.5rem;
+      line-height: 1.2;
+    }
+
+    p {
+      font-family: "Inter", sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: $gray;
+      margin: 0;
+    }
+
+    .modalAsterisco {
+      color: $rosa;
+      font-size: 1.5rem;
+      display: block;
+      margin-top: 1.5rem;
+    }
+  }
+}
+
+// --- Cita ---
+.modalCita {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 5rem 2rem;
+
+  .modalCitaTexto {
+    font-family: "Inter", sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  .modalCitaApoyo {
+    font-family: "Inter", sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: $gray;
+    margin: 0;
+  }
+}
+
+// --- Proceso ---
+.modalProceso {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 2rem;
+
+  .modalProcesoTexto {
+    h3 {
+      font-family: "Inter", sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 0 0 1rem;
+      line-height: 1.2;
+    }
+
+    p {
+      font-family: "Inter", sans-serif;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: $gray;
+      margin: 0;
+    }
+  }
+
+  .modalProcesoImagen {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+
+    img,
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+}
+
+// --- Gallery ---
+.modalGaleriaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  .modalGaleriaItem {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+
+    img,
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .modalHeroMedia {
+    height: auto;
+
+    img, video {
+      height: auto;
+      object-fit: unset;
+    }
+  }
+
+  .modalImagenFull {
+    height: auto;
+
+    img, video {
+      height: auto;
+      object-fit: unset;
+    }
+  }
+
+  .modalConceptoImagen,
+  .modalProcesoImagen,
+  .modalGaleriaItem {
+    aspect-ratio: unset;
+    height: auto;
+
+    img, video {
+      height: auto;
+      object-fit: unset;
+    }
+  }
+
+  .modalMeta {
+    grid-template-columns: 1fr 1fr;
+
+    .modalMetaItem:nth-child(n + 3) {
+      grid-column: span 2;
+    }
+  }
+
+  .modalConceptoGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .modalCita {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .modalProceso {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .modalGaleriaGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 350px) {
+  .modalCerrar {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .modalHero {
+    .modalHeroMedia {
+      height: auto;
+
+      img, video {
+        height: auto;
+        object-fit: unset;
+      }
+    }
+
+    .modalHeroInfo {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .modalTitulo {
+      font-size: clamp(2rem, 12vw, 3.5rem);
+    }
+  }
+
+  .modalMeta {
+    grid-template-columns: 1fr 1fr;
+
+    .modalMetaItem:nth-child(n + 3) {
+      grid-column: span 2;
+    }
+  }
+
+  .modalSeccion {
+    padding: 20px 20px 16px;
+  }
+
+  .modalConceptoGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .modalCita {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 20px;
+  }
+
+  .modalProceso {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 20px;
+  }
+
+  .modalGaleriaGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .modalSiguiente {
+    padding: 24px 20px 48px;
+
+    .modalSiguienteTitulo {
+      font-size: clamp(2rem, 11vw, 44px);
+    }
+  }
+}
+
+// --- Siguiente proyecto ---
+.modalSiguiente {
+  padding: 4rem 2rem 6rem;
+  border-top: 1px solid $black;
+
+  .modalMetaLabel {
+    font-family: "Inter", sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $gray;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .modalSiguienteTitulo {
+    font-family: "Inter", sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900;
+    margin: 0;
+    line-height: 1;
+    cursor: pointer;
+  }
+}
+
+// ── Lightbox galería ─────────────────────────────────────────────
+.modalGaleriaItem img {
+  cursor: zoom-in;
+}
+
+.galeriaLightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.92);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+
+  &.galeriaLightboxVisible {
+    display: flex;
+  }
+
+  .galeriaLightboxImg {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    display: block;
+  }
+}

@@ -1,0 +1,284 @@
+header {
+  position: relative;
+
+  .landingHome {
+    position: relative;
+    width: 100vw;
+    height: 56.72vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .placeholderRectangulo {
+      position: absolute;
+      inset: 0;
+    }
+
+    .textosHero {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      em {
+        font-style: italic;
+      }
+    }
+  }
+}
+
+.colorRosa {
+  color: $rosa;
+  font-weight: 900;
+}
+
+.videoGrandeEntrada {
+  display: block;
+  width: 100vw;
+  height: 56.72vw;
+}
+
+.imagenProyecto {
+  width: 65.25vw;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  overflow: hidden;
+
+  img,
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.infoProyecto {
+  width: 65.25vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 0.25rem;
+  padding-bottom: 3rem;
+
+  .nombreDescripcion {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .infoCardNombre {
+    margin: 0;
+  }
+
+  .infoCardDescripcion {
+    margin: 0;
+  }
+
+  .infoCardCliente {
+    margin: 0;
+  }
+}
+
+.seccionUltimos {
+  padding: 2rem;
+}
+
+.seccionServicios {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2 2rem;
+  padding-bottom: 2rem;
+
+  background-color: $black;
+
+  .columnaServicios {
+    margin: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    .listaServiciosHome {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        font-size: 3.52113rem;
+        font-weight: 400;
+        line-height: 1;
+      }
+
+      .destacado {
+        color: $rosa;
+      }
+    }
+  }
+
+  .columnaBio {
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    margin: 2rem;
+    padding-top: 22rem;
+    color: $background;
+
+    .enlaceContacto {
+      padding-top: 2rem;
+      align-self: flex-end;
+      color: $background;
+    }
+  }
+}
+
+.estructuraProyectos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .cardProyecto {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .alineadoDerecha {
+    align-self: flex-end;
+  }
+
+  .alineadoIzquierda {
+    align-self: flex-start;
+  }
+}
+
+.enlaceTitulo {
+  position: relative;
+  z-index: 1;
+
+  // El ::after cubre toda la card gracias al position: relative del padre (.cardProyecto)
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 800px) {
+  header {
+    .landingHome {
+      height: 56.72vw;
+      margin-top: 60px;
+    }
+  }
+
+  .imagenProyecto {
+    width: 100%;
+  }
+
+  .infoProyecto {
+    width: 100%;
+  }
+
+  .estructuraProyectos {
+    .alineadoDerecha,
+    .alineadoIzquierda {
+      align-self: auto;
+    }
+  }
+
+  .seccionServicios {
+    flex-direction: column;
+    padding: 52px 2rem;
+
+    .columnaServicios {
+      margin: 0 0 2rem 0;
+    }
+
+    .columnaBio {
+      max-width: 100%;
+      margin: 0;
+      padding-top: 2rem;
+      border-top: 1px solid #2e2e2e;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  header {
+    .landingHome {
+      height: 460px;
+      margin-top: 60px;
+    }
+  }
+
+  .imagenProyecto {
+    width: 100%;
+  }
+
+  .infoProyecto {
+    width: 100%;
+  }
+
+  .estructuraProyectos {
+    .alineadoDerecha,
+    .alineadoIzquierda {
+      align-self: auto;
+    }
+  }
+
+  .seccionUltimos {
+    padding: 28px 20px 40px;
+  }
+
+  .seccionServicios {
+    flex-direction: column;
+    padding: 52px 20px;
+
+    .columnaServicios {
+      margin: 0;
+
+      .listaServiciosHome li {
+        font-size: 2rem;
+        line-height: 1.125;
+      }
+    }
+
+    .columnaBio {
+      max-width: 100%;
+      margin: 0;
+      padding-top: 2rem;
+      border-top: 1px solid #2e2e2e;
+
+      .enlaceContacto {
+        align-self: flex-start;
+      }
+    }
+  }
+}
+
+@media (max-width: 413px) {
+  header .landingHome {
+    height: 105vw;
+  }
+
+  .seccionUltimos {
+    padding: 6.8vw 4.8vw 9.7vw;
+  }
+
+  .seccionServicios {
+    padding: 12.6vw 4.8vw;
+
+    .columnaServicios .listaServiciosHome li {
+      font-size: 7.7vw;
+    }
+  }
+
+  .infoProyecto {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+
+    .infoCardCliente {
+      width: 100%;
+    }
+  }
+}

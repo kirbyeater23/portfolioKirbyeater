@@ -1,0 +1,134 @@
+.seccionWork {
+  padding: 2rem;
+  padding-top: var(--alto-nav);
+}
+
+
+.filtrosWork {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+.filtroBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0;
+  color: $gray;
+  font-weight: 400;
+
+  &.filtroActivo {
+    color: $rosa;
+   
+  }
+
+  &:hover{
+
+    color: $yellow;
+    
+  }
+}
+
+.separadorFiltro {
+  color: $gray;
+  font-size: 1rem;
+}
+
+
+.gridWork {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+
+
+.cardWork {
+  display: flex;
+  flex-direction: column;
+
+  &--pequeña  { grid-column: span 4; }
+  &--mediana  { grid-column: span 8; }
+  &--grande   { grid-column: span 12; }
+
+  .infoProyecto {
+    width: 100%;
+  }
+
+  .imagenWork {
+    width: 100%;
+    height: 30.56vw;
+    overflow: hidden;
+
+    img, video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .seccionWork {
+    padding: 0 1.5rem 40px;
+    padding-top: var(--alto-nav);
+  }
+
+  .filtrosWork {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .gridWork {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .cardWork {
+    &--pequeña  { grid-column: span 3; }
+    &--mediana  { grid-column: span 6; }
+    &--grande   { grid-column: span 6; }
+  }
+}
+
+@media (max-width: 350px) {
+  .seccionWork {
+    padding: 0 20px 40px;
+    padding-top: var(--alto-nav);
+  }
+
+  .filtrosWork {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 16px 0;
+  }
+
+  .gridWork {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .cardWork {
+    border-top: 1px solid #e0e0e0;
+    padding: 14px 0;
+
+    .imagenWork {
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+  }
+}
