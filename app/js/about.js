@@ -53,7 +53,7 @@ function renderBio() {
   seccion.innerHTML = `
     <div class="fotoColumna">
       <p class="etiquetaYo">YO!</p>
-      <img class="fotoYo" src="./assets/images/about/yoo.png" alt="Foto de Sandra" />
+      <img class="fotoYo" src="./assets/images/about/yoo.webp" alt="Foto de Sandra" />
     </div>
     ${renderColumna(bio.es)}
     ${renderColumna(bio.en)}
