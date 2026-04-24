@@ -1,4 +1,4 @@
-function crearCardWork(proyecto) {
+﻿function crearCardWork(proyecto) {
   const srcCard = proyecto.mediaCard || proyecto.media;
   const pos = proyecto.objectPosition || "center";
   const fit = proyecto.fitImagen || "cover";
@@ -11,7 +11,7 @@ function crearCardWork(proyecto) {
     : "";
 
   return `
-    <article class="cardWork cardWork--${proyecto.tamaño}" data-categoria="${proyecto.categoria}" data-id="${proyecto.id}" style="cursor:pointer">
+    <article class="cardWork cardWork--${proyecto.tamano}" data-categoria="${proyecto.categoria}" data-id="${proyecto.id}" style="cursor:pointer">
       <div class="imagenWork placeholderRectangulo" ${imagenStyle}>
         ${contenidoMedia}
       </div>

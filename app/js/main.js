@@ -1,4 +1,4 @@
-function crearCardProyecto(proyecto) {
+﻿function crearCardProyecto(proyecto) {
   const srcCard = proyecto.mediaCard || proyecto.media;
   const pos = proyecto.objectPosition || "center";
   const contenidoMedia =
@@ -95,7 +95,7 @@ function crearModalHTML(p) {
       </div>
       <div class="modalMetaItem">
         <small class="modalMetaLabel">YEAR</small>
-        <span>${p.año || ""}</span>
+        <span>${p.anio || ""}</span>
       </div>
       <div class="modalMetaItem">
         <small class="modalMetaLabel">CATEGORY</small>
