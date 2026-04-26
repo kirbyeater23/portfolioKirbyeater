@@ -4,12 +4,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1rem;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
   margin-top: 0;
+  background: white;
 
   .paginas {
     display: flex;
@@ -18,6 +19,11 @@
 
     .pagAnex {
       padding-left: 6rem;
+      color: $black;
+
+      &:hover {
+        color: $rosa;
+      }
     }
   }
 }
@@ -34,6 +40,7 @@
     background: white;
     height: 60px;
     padding: 8px 20px;
+    z-index: 110;
 
     .paginas {
       display: none;
