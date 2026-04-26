@@ -1,7 +1,10 @@
 .modalOverlay {
   display: none;
   position: fixed;
-  inset: 0;
+  top: var(--alto-nav);
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 100;
   background: $background;
   overflow-y: scroll;
@@ -13,7 +16,7 @@
 
 .modalCerrar {
   position: fixed;
-  top: 2rem;
+  top: calc(var(--alto-nav) + 1rem);
   right: 2rem;
   z-index: 115;
   background: none;
@@ -325,7 +328,7 @@
 
 @media (max-width: 350px) {
   .modalCerrar {
-    top: 1rem;
+    top: calc(var(--alto-nav) + 0.5rem);
     right: 1rem;
   }
 
