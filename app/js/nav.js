@@ -55,7 +55,7 @@ overlay.querySelector('.menuMovilCerrar').addEventListener('click', () => {
   document.body.style.overflow = '';
 });
 
-// ── Cursor ────────────────────────────────────────────────────
+
 const cursorPunto = document.querySelector(".cursorPunto");
 const colorCursor = "#FF00CC";
 const puntoRadio = 4;

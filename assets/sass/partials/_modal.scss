@@ -1,13 +1,14 @@
 .modalOverlay {
   display: none;
   position: fixed;
-  top: var(--alto-nav);
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: 100;
   background: $background;
   overflow-y: scroll;
+  flex-direction: column;
 
   &.modalVisible {
     display: flex;
@@ -15,13 +16,16 @@
 }
 
 .modalCerrar {
-  position: fixed;
+  position: sticky;
   top: calc(var(--alto-nav) + 1rem);
-  right: 2rem;
+  align-self: flex-end;
+  margin-top: calc(var(--alto-nav) + 1rem);
+  padding: 0.75rem 2rem;
   z-index: 115;
   background: none;
   border: none;
   font-size: 1.5rem;
+  font-weight: 900;
   cursor: pointer;
   font-family: "Inter", sans-serif;
   color: $black;
@@ -269,16 +273,13 @@
 
 @media (max-width: 800px) {
   .modalOverlay {
-    flex-direction: column;
+    top: var(--alto-nav);
   }
 
   .modalCerrar {
-    position: sticky;
     top: 0;
-    align-self: flex-end;
-    background: white;
-    padding: 0.75rem 1rem;
-    font-size: 1.5rem;
+    margin-top: 0;
+    font-size: 28px;
     z-index: 1;
   }
 
