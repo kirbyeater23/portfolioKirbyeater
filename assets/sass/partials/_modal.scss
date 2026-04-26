@@ -268,6 +268,20 @@
 }
 
 @media (max-width: 800px) {
+  .modalOverlay {
+    flex-direction: column;
+  }
+
+  .modalCerrar {
+    position: sticky;
+    top: 0;
+    align-self: flex-end;
+    background: white;
+    padding: 0.75rem 1rem;
+    font-size: 1.5rem;
+    z-index: 1;
+  }
+
   .modalHeroMedia {
     height: auto;
 
@@ -327,11 +341,6 @@
 }
 
 @media (max-width: 350px) {
-  .modalCerrar {
-    top: calc(var(--alto-nav) + 0.5rem);
-    right: 1rem;
-  }
-
   .modalHero {
     .modalHeroMedia {
       height: auto;
