@@ -42,7 +42,12 @@ fetch("app/data/proyectos.json")
       const filtrados =
         filtro === "all"
           ? proyectos
-          : proyectos.filter((p) => p.categoria === filtro);
+          : proyectos.filter((p) => {
+              const term = filtro.toLowerCase();
+              const cat = (p.categoria || "").toLowerCase();
+              const tags = (p.tags || []).join(" ").toLowerCase();
+              return cat.includes(term) || tags.includes(term);
+            });
 
       grid.innerHTML = filtrados.map(crearCardWork).join("");
     }
