@@ -8,6 +8,7 @@
   z-index: 100;
   background: $background;
   overflow-y: scroll;
+  flex-direction: column;
 
   &.modalVisible {
     display: flex;
@@ -15,9 +16,9 @@
 }
 
 .modalCerrar {
-  position: fixed;
-  top: var(--alto-nav);
-  right: 1rem;
+  position: sticky;
+  top: 0;
+  align-self: flex-end;
   z-index: 115;
   background: none;
   border: none;
@@ -271,10 +272,6 @@
 }
 
 @media (max-width: 800px) {
-  .modalOverlay {
-    flex-direction: column;
-  }
-
   .modalHeroMedia {
     height: auto;
 

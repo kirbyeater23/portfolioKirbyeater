@@ -15,7 +15,7 @@ overlay.innerHTML = `
   </div>
   <hr class="menuMovilSeparador">
   <div class="menuMovilCuerpo">
-    <p class="menuMovilEtiqueta">NAVIGATION</p>
+    
     <nav class="menuMovilNav">
       <a href="index.html" class="menuMovilEnlace${esActivo('index.html') ? ' menuMovilActivo' : ''}">HOME</a>
       <a href="work.html" class="menuMovilEnlace${esActivo('work.html') ? ' menuMovilActivo' : ''}">WORK</a>

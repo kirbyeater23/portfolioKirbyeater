@@ -214,7 +214,7 @@ function ModalProyecto() {
 
   return (render) => render`
     <div class="${this.clasesModal}" onclick="${clicGaleria}">
-      <button class="modalCerrar" onclick="${cerrar}">✕</button>
+      <button class="modalCerrar" onclick="${cerrar}">×</button>
       <div>${this.htmlModal}</div>
     </div>
   `;
@@ -223,4 +223,5 @@ function ModalProyecto() {
 const rootModal =
   document.getElementById("rootHome") || document.getElementById("rootModal");
 lemonade.render(ModalProyecto, rootModal);
+
 
