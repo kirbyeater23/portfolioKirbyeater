@@ -1,7 +1,7 @@
 .modalOverlay {
   display: none;
   position: fixed;
-  top: var(--alto-nav);
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
@@ -17,7 +17,7 @@
 
 .modalCerrar {
   position: sticky;
-  top: 0;
+  top: var(--alto-nav);
   align-self: flex-end;
   z-index: 115;
   background: none;
@@ -272,6 +272,14 @@
 }
 
 @media (max-width: 800px) {
+  .modalOverlay {
+    top: var(--alto-nav);
+  }
+
+  .modalCerrar {
+    top: 0;
+  }
+
   .modalHeroMedia {
     height: auto;
 

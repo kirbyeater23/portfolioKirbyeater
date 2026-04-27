@@ -70,3 +70,43 @@ fetch("app/data/proyectos.json")
     }
   });
 
+// ── Pensante hover ───────────────────────────────────────────────
+const pensante = document.createElement("img");
+pensante.src = "assets/images/pensante.png";
+pensante.style.cssText = "position:fixed;top:0;left:0;width:160px;height:auto;pointer-events:none;opacity:0;z-index:50;";
+document.body.appendChild(pensante);
+
+gsap.set(pensante, { x: 0, y: 0, scale: 0.85 });
+
+let cardActual = null;
+let cursorX = 0;
+let cursorY = 0;
+let saltoId = null;
+
+function saltar() {
+  const ox = (Math.random() - 0.5) * 120 + 20;
+  const oy = -(Math.random() * 100 + 30);
+  gsap.to(pensante, { x: cursorX + ox, y: cursorY + oy, duration: 0.06, ease: "none" });
+  saltoId = setTimeout(saltar, Math.random() * 220 + 80);
+}
+
+document.addEventListener("mousemove", (e) => {
+  cursorX = e.clientX;
+  cursorY = e.clientY;
+});
+
+document.addEventListener("mouseover", (e) => {
+  const card = e.target.closest(".cardWork");
+  if (card && card !== cardActual) {
+    cardActual = card;
+    gsap.to(pensante, { opacity: 1, scale: 1, duration: 0.2, ease: "power2.out" });
+    clearTimeout(saltoId);
+    saltar();
+  } else if (!card && cardActual) {
+    cardActual = null;
+    clearTimeout(saltoId);
+    saltoId = null;
+    gsap.to(pensante, { opacity: 0, scale: 0.85, duration: 0.2 });
+  }
+});
+
