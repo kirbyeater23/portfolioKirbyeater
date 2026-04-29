@@ -24,8 +24,8 @@ overlay.innerHTML = `
     </nav>
     <p class="menuMovilAsterisco">*</p>
     <div class="menuMovilServicios">
-      <p>Motion · Branding · Illustration</p>
-      <p>Editorial · Web Design</p>
+      <p>Motion · Branding · Ilustración</p>
+      <p>Editorial · Diseño Web</p>
     </div>
   </div>
   <div class="menuMovilPie">

@@ -90,32 +90,32 @@ function crearModalHTML(p) {
 
     <div class="modalMeta">
       <div class="modalMetaItem">
-        <small class="modalMetaLabel">CLIENT</small>
+        <small class="modalMetaLabel">CLIENTE</small>
         <span>${p.cliente || ""}</span>
       </div>
       <div class="modalMetaItem">
-        <small class="modalMetaLabel">YEAR</small>
+        <small class="modalMetaLabel">AÑO</small>
         <span>${p.anio || ""}</span>
       </div>
       <div class="modalMetaItem">
-        <small class="modalMetaLabel">CATEGORY</small>
+        <small class="modalMetaLabel">CATEGORÍA</small>
         <span>${p.categoria || ""}</span>
       </div>
       <div class="modalMetaItem">
-        <small class="modalMetaLabel">DESCRIPTION</small>
+        <small class="modalMetaLabel">DESCRIPCIÓN</small>
         <span>${p.descripcionCorta || ""}</span>
       </div>
     </div>
 
     <div class="modalSeccion">
-      <small class="modalLabel">01 — OVERVIEW</small>
+      <small class="modalLabel">01 — PREVIEW</small>
       <div class="modalImagenFull ${p.imagen1 ? "" : "modalPlaceholder"}">
         ${mediaHTML(p.imagen1, "")}
       </div>
     </div>
 
     <div class="modalSeccion">
-      <small class="modalLabel">02 — CONCEPT</small>
+      <small class="modalLabel">02 — CONCEPTO</small>
       <div class="modalConceptoGrid">
         <div class="modalConceptoImagen ${p.imagen2 ? "" : "modalPlaceholder"}">
           ${mediaHTML(p.imagen2, "")}
@@ -150,7 +150,7 @@ function crearModalHTML(p) {
     </div>
 
     <div class="modalSeccion">
-      <small class="modalLabel">03 — GALLERY</small>
+      <small class="modalLabel">03 — GALERÍA</small>
       <div class="modalGaleriaGrid">${galeria}</div>
     </div>
 
@@ -161,7 +161,7 @@ function crearModalHTML(p) {
               (x) => x.nombre === p.siguienteProyecto,
             );
             return `<div class="modalSiguiente" ${sig ? `onclick="window.irSiguienteProyecto('${sig.id}')" style="cursor:pointer"` : ""}>
-        <small class="modalMetaLabel">NEXT PROJECT</small>
+        <small class="modalMetaLabel">SIGUIENTE TRABAJO</small>
         <h2 class="modalSiguienteTitulo">→ ${p.siguienteProyecto}*</h2>
       </div>`;
           })()
