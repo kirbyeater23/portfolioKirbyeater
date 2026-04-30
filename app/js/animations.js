@@ -73,13 +73,13 @@ new MutationObserver(aplicar).observe(document.body, { childList: true, subtree:
 let modalScrollTriggers = [];
 
 const selectoresModal = [
-  ".modalMeta",
+  ".modalInfoBasica",
   ".modalSeccion",
-  ".modalImagenFull",
-  ".modalConceptoGrid",
+  ".modalImagenCompleta",
+  ".modalConceptoRejilla",
   ".modalCita",
   ".modalProceso",
-  ".modalGaleriaGrid",
+  ".modalGaleriaRejilla",
   ".modalSiguiente",
 ];
 
@@ -104,13 +104,13 @@ function animarModal(overlay) {
 
 // Observer para cuando el modal cambia de contenido (siguiente proyecto)
 const innerObserver = new MutationObserver(() => {
-  const modal = document.querySelector(".modalOverlay.modalVisible");
+  const modal = document.querySelector(".modalSuperposicion.modalVisible");
   if (modal) requestAnimationFrame(() => requestAnimationFrame(() => animarModal(modal)));
 });
 
 // Observer para cuando el modal se abre o se cierra
 new MutationObserver(() => {
-  const modal = document.querySelector(".modalOverlay.modalVisible");
+  const modal = document.querySelector(".modalSuperposicion.modalVisible");
 
   if (modal && !modal.dataset.animadoModal) {
     modal.dataset.animadoModal = "1";
@@ -123,7 +123,7 @@ new MutationObserver(() => {
       })
     );
   } else if (!modal) {
-    const overlay = document.querySelector(".modalOverlay");
+    const overlay = document.querySelector(".modalSuperposicion");
     if (overlay) delete overlay.dataset.animadoModal;
     modalScrollTriggers.forEach((st) => st.kill());
     modalScrollTriggers = [];

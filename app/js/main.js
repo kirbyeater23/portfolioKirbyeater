@@ -74,50 +74,50 @@ function crearModalHTML(p) {
   }
   const galeria = imagenesGaleria
     .filter((src) => src)
-    .map((src) => `<div class="modalGaleriaItem">${mediaHTML(src, "")}</div>`)
+    .map((src) => `<div class="modalGaleriaElemento">${mediaHTML(src, "")}</div>`)
     .join("");
 
   return `
-    <div class="modalHero">
-      <div class="modalHeroMedia ${p.media ? "" : "modalPlaceholder"}">
+    <div class="modalPortada">
+      <div class="modalPortadaMedio ${p.media ? "" : "modalVacio"}">
         ${mediaHTML(p.media, p.nombre)}
       </div>
-      <div class="modalHeroInfo">
-        <span class="modalTags">${tags}</span>
+      <div class="modalPortadaInfo">
+        <span class="modalEtiquetas">${tags}</span>
         <h1 class="modalTitulo">${p.nombre}</h1>
       </div>
     </div>
 
-    <div class="modalMeta">
-      <div class="modalMetaItem">
-        <small class="modalMetaLabel">CLIENTE</small>
+    <div class="modalInfoBasica">
+      <div class="modalDato">
+        <small class="modalEtiquetaDato">CLIENTE</small>
         <span>${p.cliente || ""}</span>
       </div>
-      <div class="modalMetaItem">
-        <small class="modalMetaLabel">AÑO</small>
+      <div class="modalDato">
+        <small class="modalEtiquetaDato">AÑO</small>
         <span>${p.anio || ""}</span>
       </div>
-      <div class="modalMetaItem">
-        <small class="modalMetaLabel">CATEGORÍA</small>
+      <div class="modalDato">
+        <small class="modalEtiquetaDato">CATEGORÍA</small>
         <span>${p.categoria || ""}</span>
       </div>
-      <div class="modalMetaItem">
-        <small class="modalMetaLabel">DESCRIPCIÓN</small>
+      <div class="modalDato">
+        <small class="modalEtiquetaDato">DESCRIPCIÓN</small>
         <span>${p.descripcionCorta || ""}</span>
       </div>
     </div>
 
     <div class="modalSeccion">
-      <small class="modalLabel">01 — PREVIEW</small>
-      <div class="modalImagenFull ${p.imagen1 ? "" : "modalPlaceholder"}">
+      <small class="modalApartado">01 — PREVIEW</small>
+      <div class="modalImagenCompleta ${p.imagen1 ? "" : "modalVacio"}">
         ${mediaHTML(p.imagen1, "")}
       </div>
     </div>
 
     <div class="modalSeccion">
-      <small class="modalLabel">02 — CONCEPTO</small>
-      <div class="modalConceptoGrid">
-        <div class="modalConceptoImagen ${p.imagen2 ? "" : "modalPlaceholder"}">
+      <small class="modalApartado">02 — CONCEPTO</small>
+      <div class="modalConceptoRejilla">
+        <div class="modalConceptoImagen ${p.imagen2 ? "" : "modalVacio"}">
           ${mediaHTML(p.imagen2, "")}
         </div>
         <div class="modalConceptoTexto">
@@ -144,14 +144,14 @@ function crearModalHTML(p) {
         <h3>${p.procesoTitulo || ""}</h3>
         <p>${p.procesoTexto || ""}</p>
       </div>
-      <div class="modalProcesoImagen ${p.imagen3 ? "" : "modalPlaceholder"}">
+      <div class="modalProcesoImagen ${p.imagen3 ? "" : "modalVacio"}">
         ${mediaHTML(p.imagen3, "")}
       </div>
     </div>
 
     <div class="modalSeccion">
-      <small class="modalLabel">03 — GALERÍA</small>
-      <div class="modalGaleriaGrid">${galeria}</div>
+      <small class="modalApartado">03 — GALERÍA</small>
+      <div class="modalGaleriaRejilla">${galeria}</div>
     </div>
 
     ${
@@ -161,7 +161,7 @@ function crearModalHTML(p) {
               (x) => x.nombre === p.siguienteProyecto,
             );
             return `<div class="modalSiguiente" ${sig ? `onclick="window.irSiguienteProyecto('${sig.id}')" style="cursor:pointer"` : ""}>
-        <small class="modalMetaLabel">SIGUIENTE TRABAJO</small>
+        <small class="modalEtiquetaDato">SIGUIENTE TRABAJO</small>
         <h2 class="modalSiguienteTitulo">→ ${p.siguienteProyecto}*</h2>
       </div>`;
           })()
@@ -172,12 +172,12 @@ function crearModalHTML(p) {
 
 
 const lightbox = document.createElement("div");
-lightbox.className = "galeriaLightbox";
-lightbox.innerHTML = '<img class="galeriaLightboxImg" src="" alt="" />';
+lightbox.className = "visorGaleria";
+lightbox.innerHTML = '<img class="visorGaleriaImg" src="" alt="" />';
 document.body.appendChild(lightbox);
 
 function cerrarLightbox() {
-  lightbox.classList.remove("galeriaLightboxVisible");
+  lightbox.classList.remove("visorGaleriaVisible");
 }
 
 lightbox.addEventListener("click", cerrarLightbox);
@@ -186,30 +186,30 @@ document.addEventListener("keydown", (e) => {
 });
 
 function ModalProyecto() {
-  this.clasesModal = "modalOverlay";
+  this.clasesModal = "modalSuperposicion";
   this.htmlModal = "";
 
   window.abrirModal = (proyecto) => {
     this.htmlModal = crearModalHTML(proyecto);
-    this.clasesModal = "modalOverlay modalVisible";
+    this.clasesModal = "modalSuperposicion modalVisible";
     document.documentElement.style.overflow = "hidden";
     requestAnimationFrame(() => {
-      const overlay = document.querySelector(".modalOverlay");
+      const overlay = document.querySelector(".modalSuperposicion");
       if (overlay) overlay.scrollTop = 0;
     });
   };
 
   const cerrar = () => {
-    this.clasesModal = "modalOverlay";
+    this.clasesModal = "modalSuperposicion";
     document.documentElement.style.overflow = "";
   };
 
   const clicGaleria = (e) => {
-    const img = e.target.closest(".modalGaleriaItem img");
+    const img = e.target.closest(".modalGaleriaElemento img");
     if (!img) return;
     e.stopPropagation();
-    lightbox.querySelector(".galeriaLightboxImg").src = img.src;
-    lightbox.classList.add("galeriaLightboxVisible");
+    lightbox.querySelector(".visorGaleriaImg").src = img.src;
+    lightbox.classList.add("visorGaleriaVisible");
   };
 
   return (render) => render`
