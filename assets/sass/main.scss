@@ -12,6 +12,33 @@ body{
   cursor: none;
 }
 
+.carga {
+  position: fixed;
+  inset: 0;
+  background: $background;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  .cargaMain {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+    img {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
 :root {
   --alto-nav: 6.5rem;
 }
@@ -77,7 +104,6 @@ a {
   }
 }
 
-// ── Menú móvil overlay ──────────────────────────────────────────
 .menuMovilOverlay {
   display: none;
   position: fixed;

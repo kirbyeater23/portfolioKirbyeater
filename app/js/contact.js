@@ -1,12 +1,10 @@
-// ── Configuración EmailJS ────────────────────────────────────────
-// Reemplaza estos tres valores con los de tu cuenta en emailjs.com
-const EMAILJS_PUBLIC_KEY  = "vKBniLW7ARL_A5bNo";
-const EMAILJS_SERVICE_ID  = "service_jc4yk3b";
-const EMAILJS_TEMPLATE_ID = "template_cqungre";
 
-emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+const emailJsPublicKey = "vKBniLW7ARL_A5bNo";
+const emailJsServiceId  = "service_jc4yk3b";
+const emailJsTemplateId = "template_cqungre";
 
-// ── Formulario ───────────────────────────────────────────────────
+emailjs.init({ publicKey: emailJsPublicKey });
+
 const formulario = document.getElementById("formularioContact");
 const mensaje    = document.getElementById("mensajeFormulario");
 const boton      = formulario.querySelector(".botonEnviar");
@@ -34,7 +32,7 @@ formulario.addEventListener("submit", (e) => {
   boton.disabled = true;
   boton.textContent = "ENVIANDO...";
 
-  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+  emailjs.send(emailJsServiceId, emailJsTemplateId, {
     from_name:  `${nombre} ${apellidos}`,
     from_email: correo,
     servicio:   servicio || "No especificado",

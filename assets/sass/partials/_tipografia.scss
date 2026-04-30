@@ -11,7 +11,7 @@ body {
   padding: 0;
 }
 
-/* HERO / GRITO */
+
 h1 {
   font-family: "Inter", sans-serif;
   font-size: clamp(7rem, 14vw, 13.81581rem);
@@ -22,7 +22,7 @@ h1 {
   padding: 0;
 }
 
-/* CORTE FUERTE */
+
 h2 {
   font-family: "Inter", sans-serif;
   font-size: 3.5rem;
@@ -33,7 +33,7 @@ h2 {
   padding: 0;
 }
 
-/* BLOQUE */
+
 h3 {
   font-family: "Inter", sans-serif;
   font-size: 1rem;
@@ -44,7 +44,7 @@ h3 {
   padding: 0;
 }
 
-/* INTERRUPCIÓN */
+
 h4 {
   font-family: "Inter", sans-serif;
   font-size: 1rem;
@@ -104,25 +104,25 @@ small {
     line-height: normal;
   }
 
-  /* INTERRUPCIÓN / descripción card → 11px */
+ 
   h4 {
     font-size: 0.5rem;
     line-height: normal;
   }
 
-  /* cliente / meta → 10px */
+  
   h5 {
     font-size: 0.5rem;
     line-height: normal;
   }
 
-  /* TEXTO BASE → 14px, line-height 22px */
+  
   p {
     font-size: 0.35rem;
     line-height: 1.375rem;
   }
 
-  /* MICRO / UI → 10px */
+  
   small {
     font-size: 0.35rem;
     line-height: normal;
@@ -130,43 +130,43 @@ small {
 }
 
 @media (max-width: 350px) {
-  /* HERO → 76px en mobile */
+  
   h1 {
     font-size: 4.75rem;
     line-height: 1;
   }
 
-  /* CORTE FUERTE → 32px */
+  
   h2 {
     font-size: 2rem;
     line-height: 1.125;
   }
 
-  /* BLOQUE / nombre card → 13px bold */
+  
   h3 {
     font-size: 0.5rem;
     line-height: normal;
   }
 
-  /* INTERRUPCIÓN / descripción card → 11px */
+ 
   h4 {
     font-size: 0.5rem;
     line-height: normal;
   }
 
-  /* cliente / meta → 10px */
+  
   h5 {
     font-size: 0.5rem;
     line-height: normal;
   }
 
-  /* TEXTO BASE → 14px, line-height 22px */
+  
   p {
     font-size: 0.5rem;
     line-height: 1.375rem;
   }
 
-  /* MICRO / UI → 10px */
+  
   small {
     font-size: 0.4rem;
     line-height: normal;

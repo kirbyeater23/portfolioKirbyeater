@@ -154,7 +154,7 @@ header {
   position: relative;
   z-index: 1;
 
-  // El ::after cubre toda la card gracias al position: relative del padre (.cardProyecto)
+  
   &::after {
     content: "";
     position: absolute;

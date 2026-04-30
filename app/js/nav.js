@@ -55,7 +55,13 @@ overlay.querySelector('.menuMovilCerrar').addEventListener('click', () => {
   document.body.style.overflow = '';
 });
 
-// ── Cursor ────────────────────────────────────────────────────
+
+
+
+
+
+
+//CURSOOOOr
 const cursorPunto = document.querySelector(".cursorPunto");
 const colorCursor = "#FF00CC";
 const puntoRadio = 4;
@@ -99,7 +105,7 @@ let prevY = null;
 let segStartX = null;
 let segStartY = null;
 let acumulado = 0;
-const CADA_PX = 18;
+const cadaPx = 18;
 
 window.addEventListener("mousemove", (e) => {
   const cx = e.clientX;
@@ -127,7 +133,7 @@ window.addEventListener("mousemove", (e) => {
   const dist = Math.sqrt(dx * dx + dy * dy);
   acumulado += dist;
 
-  if (acumulado >= CADA_PX) {
+  if (acumulado >= cadaPx) {
     const angle = Math.atan2(cy - segStartY, cx - segStartX) * (180 / Math.PI);
     const longitud = Math.sqrt((cx - segStartX) ** 2 + (cy - segStartY) ** 2);
     const seg = poolSegmentos[segIdx % numSegmentos];

@@ -1,3 +1,125 @@
+window.addEventListener("load", () => {
+  const carga = document.querySelector(".carga");
+  const cargaMain = document.querySelector(".cargaMain");
+
+  if (!carga || !cargaMain) return;
+
+  const original = cargaMain.querySelector("img");
+  if (!original) return;
+
+  const contenidoOriginal = cargaMain.innerHTML;
+
+  for (let i = 0; i < 83; i++) {
+    cargaMain.innerHTML += contenidoOriginal;
+  }
+
+  const imgs = cargaMain.querySelectorAll("img");
+  const imagenesInicio = gsap.utils.toArray(".cargaMain > img:nth-child(-n + 11)");
+  const tl = gsap.timeline();
+
+  gsap.set("body", { autoAlpha: 1 });
+  gsap.set(cargaMain, {
+    transformOrigin: "50% 50%",
+  });
+  gsap.set(imgs, {
+    opacity: 0,
+    xPercent: -50,
+    yPercent: -50,
+  });
+  gsap.set(imagenesInicio, {
+    x: function (i) {
+      return i * 10 - 50;
+    },
+  });
+
+  tl.set(imgs, { opacity: 0 });
+
+  tl.to(imgs, {
+    opacity: 1,
+    x: function (i) {
+      return (i / 2 + 10) * Math.cos(i * 5);
+    },
+    y: function (i) {
+      return (i / 2 + 10) * Math.sin(i * 5);
+    },
+    scale: function (i) {
+      return 0.5 + i / 500;
+    },
+    ease: "elastic.out(1.2, 0.5)",
+    duration: 3,
+    stagger: 0.005,
+  });
+
+  tl.to(
+    cargaMain,
+    {
+      rotation: 360,
+      duration: 4,
+      ease: "none",
+    },
+    "<",
+  );
+
+  tl.to(carga, {
+    opacity: 0,
+    duration: 1.2,
+    pointerEvents: "none",
+    onComplete: () => {
+      carga.remove();
+    },
+  }, "<2.4");
+});
+
+(function activarRecargaDeslizando() {
+  if (!window.matchMedia("(pointer: coarse)").matches) return;
+
+  let inicioY = 0;
+  let puedeRecargar = false;
+
+  function hayCapaAbierta() {
+    return (
+      document.querySelector(".modalSuperposicion.modalVisible") ||
+      document.querySelector(".menuMovilOverlay.menuMovilVisible")
+    );
+  }
+
+  function estaEscribiendo(elemento) {
+    return elemento.closest("input, textarea, select");
+  }
+
+  window.addEventListener(
+    "touchstart",
+    (e) => {
+      puedeRecargar =
+        window.scrollY === 0 &&
+        !hayCapaAbierta() &&
+        !estaEscribiendo(e.target);
+
+      if (puedeRecargar) inicioY = e.touches[0].clientY;
+    },
+    { passive: true },
+  );
+
+  window.addEventListener(
+    "touchmove",
+    (e) => {
+      if (!puedeRecargar || window.scrollY !== 0) return;
+
+      const distancia = e.touches[0].clientY - inicioY;
+
+      if (distancia > 120) {
+        puedeRecargar = false;
+        window.location.reload();
+      }
+    },
+    { passive: true },
+  );
+
+  window.addEventListener("touchend", () => {
+    puedeRecargar = false;
+  });
+})();
+
 gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
 
 const selectores = [
@@ -38,37 +160,43 @@ function aplicar() {
 }
 
 aplicar();
-new MutationObserver(aplicar).observe(document.body, { childList: true, subtree: true });
-
-// ── ScrambleText en h1 ──────────────────────────────────────────
+new MutationObserver(aplicar).observe(document.body, {
+  childList: true,
+  subtree: true,
+});
 
 (function aplicarScramble() {
   document.querySelectorAll("h1").forEach((el) => {
     const htmlOriginal = el.innerHTML;
     const textoFinal = el.textContent.trim();
 
-    // Entrada al cargar la página
     gsap.to(el, {
       duration: 1.2,
-      scrambleText: { text: textoFinal, chars: "upperCase", speed: 0.4, revealDelay: 0.2 },
+      scrambleText: {
+        text: textoFinal,
+        chars: "upperCase",
+        speed: 0.4,
+        revealDelay: 0.2,
+      },
       ease: "none",
-      onComplete: () => { el.innerHTML = htmlOriginal; },
+      onComplete: () => {
+        el.innerHTML = htmlOriginal;
+      },
     });
 
-    // Hover
     el.addEventListener("mouseenter", () => {
       gsap.killTweensOf(el);
       gsap.to(el, {
         duration: 0.7,
         scrambleText: { text: textoFinal, chars: "upperCase", speed: 0.5 },
         ease: "none",
-        onComplete: () => { el.innerHTML = htmlOriginal; },
+        onComplete: () => {
+          el.innerHTML = htmlOriginal;
+        },
       });
     });
   });
 })();
-
-// ── Animaciones scroll dentro del modal ─────────────────────────
 
 let modalScrollTriggers = [];
 
@@ -102,13 +230,14 @@ function animarModal(overlay) {
   });
 }
 
-// Observer para cuando el modal cambia de contenido (siguiente proyecto)
 const innerObserver = new MutationObserver(() => {
   const modal = document.querySelector(".modalSuperposicion.modalVisible");
-  if (modal) requestAnimationFrame(() => requestAnimationFrame(() => animarModal(modal)));
+  if (modal)
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => animarModal(modal)),
+    );
 });
 
-// Observer para cuando el modal se abre o se cierra
 new MutationObserver(() => {
   const modal = document.querySelector(".modalSuperposicion.modalVisible");
 
@@ -120,7 +249,7 @@ new MutationObserver(() => {
         animarModal(modal);
         const innerDiv = modal.querySelector(":scope > div");
         if (innerDiv) innerObserver.observe(innerDiv, { childList: true });
-      })
+      }),
     );
   } else if (!modal) {
     const overlay = document.querySelector(".modalSuperposicion");
@@ -129,4 +258,8 @@ new MutationObserver(() => {
     modalScrollTriggers = [];
     innerObserver.disconnect();
   }
-}).observe(document.body, { attributes: true, subtree: true, attributeFilter: ["class"] });
+}).observe(document.body, {
+  attributes: true,
+  subtree: true,
+  attributeFilter: ["class"],
+});

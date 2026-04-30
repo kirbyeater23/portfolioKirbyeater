@@ -56,7 +56,7 @@ window.irSiguienteProyecto = (id) => {
   if (p) window.abrirModal(p);
 };
 
-function mediaHTML(src, alt) {
+function mediaHtml(src, alt) {
   if (!src) return "";
   return src.endsWith(".mp4")
     ? `<video src="${src}" muted loop playsinline autoplay></video>`
@@ -74,13 +74,13 @@ function crearModalHTML(p) {
   }
   const galeria = imagenesGaleria
     .filter((src) => src)
-    .map((src) => `<div class="modalGaleriaElemento">${mediaHTML(src, "")}</div>`)
+    .map((src) => `<div class="modalGaleriaElemento">${mediaHtml(src, "")}</div>`)
     .join("");
 
   return `
     <div class="modalPortada">
       <div class="modalPortadaMedio ${p.media ? "" : "modalVacio"}">
-        ${mediaHTML(p.media, p.nombre)}
+        ${mediaHtml(p.media, p.nombre)}
       </div>
       <div class="modalPortadaInfo">
         <span class="modalEtiquetas">${tags}</span>
@@ -110,7 +110,7 @@ function crearModalHTML(p) {
     <div class="modalSeccion">
       <small class="modalApartado">01 — PREVIEW</small>
       <div class="modalImagenCompleta ${p.imagen1 ? "" : "modalVacio"}">
-        ${mediaHTML(p.imagen1, "")}
+        ${mediaHtml(p.imagen1, "")}
       </div>
     </div>
 
@@ -118,7 +118,7 @@ function crearModalHTML(p) {
       <small class="modalApartado">02 — CONCEPTO</small>
       <div class="modalConceptoRejilla">
         <div class="modalConceptoImagen ${p.imagen2 ? "" : "modalVacio"}">
-          ${mediaHTML(p.imagen2, "")}
+          ${mediaHtml(p.imagen2, "")}
         </div>
         <div class="modalConceptoTexto">
           <h2>${p.concepto || ""}</h2>
@@ -145,7 +145,7 @@ function crearModalHTML(p) {
         <p>${p.procesoTexto || ""}</p>
       </div>
       <div class="modalProcesoImagen ${p.imagen3 ? "" : "modalVacio"}">
-        ${mediaHTML(p.imagen3, "")}
+        ${mediaHtml(p.imagen3, "")}
       </div>
     </div>
 

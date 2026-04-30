@@ -75,7 +75,7 @@ fetch("app/data/proyectos.json")
     }
   });
 
-// ── Pensante hover ───────────────────────────────────────────────
+
 const pensante = document.createElement("img");
 pensante.src = "assets/images/pensante.png";
 pensante.style.cssText = "position:fixed;top:0;left:0;width:160px;height:auto;pointer-events:none;opacity:0;z-index:50;";
